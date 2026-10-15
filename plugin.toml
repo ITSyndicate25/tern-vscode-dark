@@ -1,0 +1,7 @@
+schema = 1
+id = "vscode-dark"
+name = "VS Code Dark Modern"
+version = "1.0.0"
+description = "VS Code Dark Modern palette for Tern: chrome, terminal and the file editor's syntax colors."
+window = "window.luau"
+styles = ["vscode.css"]

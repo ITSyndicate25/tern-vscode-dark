@@ -1,0 +1,140 @@
+/*
+ * VS Code Dark Modern palette for Tern.
+ *
+ * Every value comes from the VS Code this machine runs: its
+ * theme-defaults/themes/dark_modern.json and the dark_plus.json and
+ * dark_vs.json it includes, plus the color-registry defaults in its
+ * workbench bundle for the keys Dark Modern leaves alone. The comment beside
+ * a declaration names the key it came from. settings.json pins
+ * "workbench.colorTheme": "Dark Modern", with no color or token
+ * customizations above it.
+ *
+ * Tern paints a theme by writing its palette inline on the root element, and
+ * only a sheet's `!important` declaration beats an inline one: that is why
+ * the theme block is important. The kit's own defaults (`--tk-*`, `--ed-*`)
+ * do not need it, since this sheet comes after them.
+ *
+ * Only the palette is set. Tern's own sheets derive --page, --panel, --l1 to
+ * --l4, --ink2 to --ink4, --chip-bg, --well-line, --pop-bg, --topbar-bg,
+ * --sf-neutral and --tv-sel from these values -- including the alpha steps
+ * that keep the Glass material translucent -- so tabs, panes, lists, dialogs,
+ * popovers and surfaces follow without a rule each.
+ *
+ * The light appearance is left to Tern.
+ */
+
+html[data-theme='dark'] {
+	/*
+	 * Window chrome (#181818) around a #1f1f1f editor. These two are the
+	 * theme's own sources for the page and popover material, so the derived
+	 * --page, --pop-bg and --topbar-bg keep the alpha the theme gives them
+	 * and a Glass window stays translucent.
+	 */
+	--tn-page: #181818 !important; /* sideBar/panel/statusBar/titleBar.background */
+	--tn-pop: #1f1f1f !important; /* menu.background, dropdown.listBackground */
+	--card: #202020 !important; /* editorWidget.background */
+	--raise: #313131 !important; /* input.background, dropdown.background */
+	--code-bg: #2b2b2b !important; /* textCodeBlock.background */
+	--tbl-head: #2b2b2b !important; /* textCodeBlock.background */
+
+	/* Text: foreground, then description, inactive and line-number steps. */
+	--ink: #cccccc !important;
+	--t1: #cccccc !important; /* editor.foreground */
+	--t2: #9d9d9d !important; /* descriptionForeground */
+	--t3: #868686 !important; /* activityBar.inactiveForeground */
+	--t4: #6e7681 !important; /* editorLineNumber.foreground */
+
+	/* Accent, from the focus ring and button fill. */
+	--accent: #0078d4 !important; /* focusBorder, button.background, progressBar.background */
+	--accent-ink: #4daafc !important; /* textLink.activeForeground */
+	--accent-fill: #0078d4 !important; /* button.background, under white text */
+	--a1: #0078d4 !important;
+	--a2: #4daafc !important;
+	--grad-ink: #ffffff !important; /* button.foreground */
+
+	/* Status: added green, warning amber, error red, info blue. */
+	--ok: #2ea043 !important; /* editorGutter.addedBackground */
+	--ok-fill: #268838 !important; /* --ok darkened to carry white text */
+	--warn: #cca700 !important; /* editorWarning.foreground */
+	--bad: #f85149 !important; /* errorForeground */
+	--bad-fill: #d3443d !important; /* --bad darkened to carry white text */
+	--live: #59a4f9 !important; /* editorInfo.foreground */
+	--live-fill: #4079ba !important; /* --live darkened to carry white text */
+
+	/* Terminal grid and selection. */
+	--tv-bg: #1f1f1f !important; /* editor.background, terminal.foreground's surface */
+	--tv-fg: #cccccc !important; /* terminal.foreground */
+	--tv-cur: #aeafad !important; /* editorCursor.foreground */
+	--tv-cur-ink: #1f1f1f !important; /* editor.background, the text under the cursor */
+	--tn-sel: #264f78 !important; /* editor.selectionBackground */
+	--tv-sel-a: #264f78 !important;
+	--tv-sel-b: #264f78 !important;
+	--tv-sel: #264f78; /* editor.selectionBackground, drawn opaque as VS Code draws it */
+
+	/* Terminal ANSI, the dark defaults VS Code registers for terminal.ansi*. */
+	--ansi0: #000000 !important;
+	--ansi1: #cd3131 !important;
+	--ansi2: #0dbc79 !important;
+	--ansi3: #e5e510 !important;
+	--ansi4: #2472c8 !important;
+	--ansi5: #bc3fbc !important;
+	--ansi6: #11a8cd !important;
+	--ansi7: #e5e5e5 !important;
+	--ansi8: #666666 !important;
+	--ansi9: #f14c4c !important;
+	--ansi10: #23d18b !important;
+	--ansi11: #f5f543 !important;
+	--ansi12: #3b8eea !important;
+	--ansi13: #d670d6 !important;
+	--ansi14: #29b8db !important;
+	--ansi15: #e5e5e5 !important;
+
+	/*
+	 * Syntax. Tern maps a lexeme to one token, so a token that covers
+	 * several VS Code scopes takes the color most of them use: `keyword`
+	 * carries control flow as well as declarations and modifiers, and takes
+	 * the #569cd6 of the declarations.
+	 */
+	--tk-comment: #6a9955; /* comment */
+	--tk-doc: #6a9955; /* comment.block.documentation */
+	--tk-keyword: #569cd6; /* keyword, storage.type, storage.modifier */
+	--tk-function: #dcdcaa; /* entity.name.function, support.function */
+	--tk-variable: #9cdcfe; /* variable, support.variable */
+	--tk-property: #9cdcfe; /* entity.other.attribute-name, meta.object-literal.key */
+	--tk-string: #ce9178; /* string */
+	--tk-escape: #d7ba7d; /* constant.character.escape */
+	--tk-number: #b5cea8; /* constant.numeric */
+	--tk-constant: #569cd6; /* constant.language */
+	--tk-type: #4ec9b0; /* entity.name.type, support.class, support.type */
+	--tk-tag: #569cd6; /* entity.name.tag */
+	--tk-macro: #d4d4d4; /* support.macro, entity.name.macro: unthemed, so the text color */
+	--tk-heading: #569cd6; /* markup.heading */
+	--tk-link: #4daafc; /* textLink.activeForeground */
+	--tk-operator: #d4d4d4; /* keyword.operator */
+	--tk-punct: #d4d4d4; /* punctuation, unthemed */
+
+	/*
+	 * The file editor's own colors, read from these variables as it paints.
+	 * The diagnostics are the editor's, not the workbench's: VS Code paints
+	 * squiggles with the editor keys, which Dark Modern leaves at their
+	 * defaults rather than at errorForeground.
+	 */
+	--ed-num: #6e7681; /* editorLineNumber.foreground */
+	--ed-num-cur: #cccccc; /* editorLineNumber.activeForeground */
+	--ed-caret: #aeafad; /* editorCursor.foreground */
+	/*
+	 * `--ed-line` is left alone. Tern fills the current line with it, while
+	 * Dark Modern sets editor.lineHighlightBackground to null and draws only
+	 * the #282828 editor.lineHighlightBorder outline, so the nearest match is
+	 * the kit's faint fill (--l1), not that border color painted as a band.
+	 */
+	--ed-guide: #404040; /* editorIndentGuide.background1 */
+	--ed-bracket: #888888; /* editorBracketMatch.border */
+	--ed-link: #4e94ce; /* editorLink.activeForeground */
+	--ed-thumb: #79797966; /* scrollbarSlider.background */
+	--ed-diag-error: #f14c4c; /* editorError.foreground */
+	--ed-diag-info: #59a4f9; /* editorInfo.foreground */
+	--ed-git-mod: #0078d4; /* editorGutter.modifiedBackground */
+	--ed-mark: #ea5c0055; /* editor.findMatchHighlightBackground */
+	--ed-hit: #9e6a03; /* editor.findMatchBackground */
+}
