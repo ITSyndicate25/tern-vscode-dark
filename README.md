@@ -46,8 +46,10 @@ radii, motion and light appearance.
 
 - **Liquid Glass.** The sheet sets the theme's page and popover colors, not
   the values Tern derives from them, so a glass window keeps its translucency
-  and its opacity setting. Glass composites the panel toward about `#1e1e1e`
-  instead of `#1f1f1f`; use a solid material to see the exact value.
+  and its opacity setting. Measured in a window on Liquid Glass, the panel
+  composites to about `#1d1d1d` instead of `#1f1f1f`; the exact value depends
+  on the material, its opacity and the backdrop, so use a solid material when
+  you want `#1f1f1f` on screen.
 - **One keyword color.** Tern's highlighter has a single keyword token, so
   `if`, `return` and `foreach` render `#569cd6` like `public` and `static`,
   instead of VS Code's `#c586c0` for control flow.
